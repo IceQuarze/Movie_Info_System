@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style type="text/css">
+        body{
+            margin:40px;
+            background-image: url("/back.jpg");
+        }
+        #main{
+            margin:10px;
+            border:1px solid #D0D0D0;
+            box-shadow:0 0 8px #D0D0D0;
+            font-size:18px;
+            background-color:rgba(255,255,255,0.8)
+        }
+        .item{
+            display:block;
+            margin:10px;
+            background-color:#F0F0F0;
+        }
+        h2{
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+        <h2>电影信息</h2>
+        <div id="main">
+        <?php foreach($data as $item): ?>
+            <div class="item">
+                <a href="/index.php/index/showPage/<?php echo $item['id'];?>"><?php echo $item['name']?></a>
+            </div>
+            <?php endforeach;?>
+        </div>
+        <div id="switch">
+            <?php if($cur_page>1): ?>
+            <a href="/index.php/index/index/<?=($cur_page-1)?>">Prev</a>
+            <?php endif; ?>
+            <?php if($cur_page<$max_page): ?>
+            <a href="/index.php/index/index/<?=($cur_page+1)?>">Next</a>
+            <?php endif; ?>
+        </div>
+    </body>
+</html>
